@@ -64,4 +64,5 @@ sudo pacman -S vim
 
 # update modified theme
 
+
 todo # create scripts folder (to automate the copying of config files separadely)

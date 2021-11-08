@@ -1,0 +1,18 @@
+editar layouts no theme.lua
+
+editar mais os atalhos
+
+integração pavu com som
+
+achar calendario melhor
+
+configurar rofi
+ -drun 
+ -drun com menu (tipo gnome)
+ -alt tab - icones
+
+editar title bars
+
+colocar title bars em janelas flutuantes
+
+modificar posição de janelas de popup e flutuantes

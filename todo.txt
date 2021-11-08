@@ -1,0 +1,15 @@
+olhar todo setup.sh
+
+separar os scripts
+
+talvez criar link simbolico para .local/bin para executar com alias no dia a dia 
+para edição de configurações
+    edit-conf = code Projects/config/
+    update-conf = .local/bin/copy-config.sh ou ./Projects/config/scripts/copy-configs.sh
+
+
+automatizar / adicionar aqui outros programas a serem utilizados no dia a dia
+
+temas gtk / icons e cursores
+
+pensar futuramente, se uso de wm, configurações do rofi, polybar, etc para instalação automatica
