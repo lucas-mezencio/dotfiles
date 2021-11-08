@@ -15,6 +15,9 @@ git config --global user.email "lucasmezss@hotmail.com"
 sudo pacman -S ttf-fira-code
 sudo pacman -S ttf-meslo-nerd-font-powerlevel10k
 
+
+sudo pacman -S alacritty
+
 echo criando pastas
 # create local bin directory
 mkdir -p ~/.local/bin
@@ -23,7 +26,10 @@ mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/awesome
 
 echo copiando arquivos de configuração
-cp config/.zshrc ~/.zshrc
+cp config/.zshrc ~
+cp config/.vimrc ~
+cp config/alacritty.yml ~/.config/config/alacritty
+cp config/awesome/* ~/.config/awesome
 
 #oh-my-zsh
 echo "Instalando oh-my-zsh"
