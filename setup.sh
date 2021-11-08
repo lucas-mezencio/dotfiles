@@ -23,8 +23,7 @@ mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/awesome
 
 echo copiando arquivos de configuração
-cp config/.zshrc ~/.zshrc 
-
+cp config/.zshrc ~/.zshrc
 
 #oh-my-zsh
 echo "Instalando oh-my-zsh"
