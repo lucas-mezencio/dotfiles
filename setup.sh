@@ -22,8 +22,9 @@ mkdir -p ~/.local/bin
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/awesome
 
-echo linkando arquivos de configuração
-ln -s 
+echo copiando arquivos de configuração
+cp config/.zshrc ~/.zshrc 
+
 
 #oh-my-zsh
 echo "Instalando oh-my-zsh"
