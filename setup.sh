@@ -57,3 +57,11 @@ sudo snap install dbeaver-ce
 echo "instalando softwares de uso diario"
 yay -S spotify
 sudo pacman -S vim
+
+#outros softwares
+
+# dowload copycats theme
+
+# update modified theme
+
+todo # create scripts folder (to automate the copying of config files separadely)
