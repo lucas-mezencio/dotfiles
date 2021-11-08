@@ -13,3 +13,7 @@ automatizar / adicionar aqui outros programas a serem utilizados no dia a dia
 temas gtk / icons e cursores
 
 pensar futuramente, se uso de wm, configurações do rofi, polybar, etc para instalação automatica
+
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+DA PRA LINKAR OS CONFIG FILES COM: "ln -rs -f (forçar) original destino
