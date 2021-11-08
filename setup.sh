@@ -16,7 +16,7 @@ sudo pacman -S ttf-fira-code
 sudo pacman -S ttf-meslo-nerd-font-powerlevel10k
 
 
-sudo pacman -S alacritty
+sudo pacman -S alacritty yay
 
 echo criando pastas
 # create local bin directory
@@ -54,3 +54,6 @@ sudo snap install intellij-idea-ultimate --classic
 sudo snap install android-studio --classic
 sudo snap install dbeaver-ce
 
+echo "instalando softwares de uso diario"
+yay -S spotify
+sudo pacman -S vim
