@@ -23,3 +23,5 @@ DA PRA LINKAR OS CONFIG FILES COM: "ln -rs -f (forçar) original destino
 discord
 vlc
 lutris
+ranger - terminal file manager
+fff - terminal file manager
