@@ -16,3 +16,5 @@ editar title bars
 colocar title bars em janelas flutuantes
 
 modificar posição de janelas de popup e flutuantes
+
+add xfce4-sessions-logout atalho
