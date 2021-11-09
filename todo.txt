@@ -17,3 +17,9 @@ pensar futuramente, se uso de wm, configurações do rofi, polybar, etc para ins
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 DA PRA LINKAR OS CONFIG FILES COM: "ln -rs -f (forçar) original destino
+
+
+# software
+discord
+vlc
+lutris
