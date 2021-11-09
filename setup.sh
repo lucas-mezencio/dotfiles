@@ -57,6 +57,7 @@ sudo snap install dbeaver-ce
 echo "instalando softwares de uso diario"
 yay -S spotify
 sudo pacman -S vim
+sudo snap install teams
 
 #outros softwares
 
