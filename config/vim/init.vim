@@ -8,11 +8,15 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'ObserverOfTime/coloresque.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/tagbar'
 
 call plug#end()
 
 map <F5> :NERDTreeToggle<CR>
 set statusline+=%#warningmsg#
+set nu
+set autoindent
+set mouse=a
 
 
 "syntastic commands
