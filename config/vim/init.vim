@@ -17,6 +17,9 @@ set statusline+=%#warningmsg#
 set nu!
 set autoindent
 set mouse=a
+set incsearch
+set confirm
+set title
 
 "default mapping
 map q :quit<CR>
