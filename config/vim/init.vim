@@ -12,12 +12,20 @@ Plug 'preservim/tagbar'
 
 call plug#end()
 
-map <F5> :NERDTreeToggle<CR>
+" defaults
 set statusline+=%#warningmsg#
-set nu
+set nu!
 set autoindent
 set mouse=a
 
+"default mapping
+map q :quit<CR>
+map <C-q> :quit!<CR>
+map <C-s> :w<CR>
+
+
+" Plugin mapping
+map <F5> :NERDTreeToggle<CR>
 
 "syntastic commands
 set statusline+=%{SyntasticStatuslineFlag()}
