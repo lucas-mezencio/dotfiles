@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/bash
 
 #configure git
 git config --global init.defaultBranch main
