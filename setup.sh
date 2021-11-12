@@ -2,6 +2,7 @@
 
 pwd=$(pwd)
 script_folder=$pwd/scripts/
+config_folder=$pwd/config/
 
 #update system
 sudo pacman -Syu
@@ -30,9 +31,9 @@ mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/awesome
 
 echo copiando arquivos de configuração
-cp config/.zshrc ~
-cp config/.vimrc ~
-cp config/alacritty.yml ~/.config/config/alacritty
+cp $config_folder/.zshrc ~
+cp $config_folder/alacritty.yml ~/.config/config/alacritty
+
 cp config/awesome/* ~/.config/awesome
 
 #oh-my-zsh
