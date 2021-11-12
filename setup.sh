@@ -1,15 +1,19 @@
 #! /bin/zsh
 
+pwd=$(pwd)
+script_folder=$pwd/scripts/
+
 #update system
 sudo pacman -Syu
 
 #install base
 sudo pacman -S base
 
+# enable scripts executable
+sudo chmod +x $script_folder/*.sh
+
 #configure git
-git config --global init.defaultBranch main
-git config --global user.name "lucas-mezencio"
-git config --global user.email "lucasmezss@hotmail.com"
+./$script_folder/config-git.sh
 
 #install fonts
 sudo pacman -S ttf-fira-code
