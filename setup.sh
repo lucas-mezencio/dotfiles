@@ -48,15 +48,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/ma
 echo "Instalando vim_plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# java 11 openjdk
-echo "Instalando openjdk 11"
-sudo pacman -S openjdk11-doc jdk11-openjdk
-
-echo "instalando ides via snap"
-sudo ln -s /var/lib/snapd/snap /snap
-sudo snap install intellij-idea-ultimate --classic
-sudo snap install android-studio --classic
-sudo snap install dbeaver-ce
+# install jdk and ides
+echo "Instalando JDK 11 e IDEs"
+./$script_folder/config-ide.sh
 
 echo "instalando softwares de uso diario"
 yay -S spotify
