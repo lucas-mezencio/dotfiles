@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -8,12 +8,27 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'ObserverOfTime/coloresque.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/tagbar'
 
 call plug#end()
 
-map <F5> :NERDTreeToggle<CR>
+" defaults
 set statusline+=%#warningmsg#
+set nu!
+set autoindent
+set mouse=a
+set incsearch
+set confirm
+set title
 
+"default mapping
+map q :quit<CR>
+map <C-q> :quit!<CR>
+map <C-s> :w<CR>
+
+
+" Plugin mapping
+map <F5> :NERDTreeToggle<CR>
 
 "syntastic commands
 set statusline+=%{SyntasticStatuslineFlag()}

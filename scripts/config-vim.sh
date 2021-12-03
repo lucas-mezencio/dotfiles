@@ -1,4 +1,7 @@
 #! /bin/bash
 
-cp ../config/vim/.vimrc ~/.vimrc
-cp ../config/vim/init.vim ~/.config/nvim/
+
+pwd=$(pwd)
+cp $pwd/config/vim/.vimrc ~/.vimrc
+cp $pwd/config/vim/init.vim ~/.config/nvim/init.vim
+
