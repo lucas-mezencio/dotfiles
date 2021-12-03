@@ -110,15 +110,31 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+##################################################
+# ZPlug section
+##################################################
+source ~/.zplug/init.zsh
 
-# zinit ice depth"1" # git clone depth
-# zinit light romkatv/powerlevel10k
+zplug romkatv/powerlevel10k
 
-# zinit light zsh-users/zsh-autosuggestions
-# zinit light zdharma-continuum/fast-syntax-highlighting
-# zinit light zsh-users/zsh-completions
+zplug zsh-users/zsh-autosuggestions
+zplug zdharma-continuum/fast-syntax-highlighting
+zplug zsh-users/zsh-completions
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+# Then, source plugins and add commands to $PATH
+zplug load 
+##################################################
+
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source $HOME/.config/.aliases
+# source $HOME/.config/.aliases
