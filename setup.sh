@@ -10,29 +10,30 @@ sudo pacman -Syu
 #install base
 sudo pacman -S base
 
+echo "Creating folders"
+# create local bin directory
+mkdir -p $HOME/.local/bin
+#create config files and folders
+mkdir -p $HOME/.config/alacritty
+mkdir -p $HOME/.config/awesome
+
 # enable scripts executable
+echo "Enabling scripts"
 sudo chmod +x $script_folder/*.sh
 
 #configure git
+echo "Configuring git"
 ./$script_folder/config-git.sh
 
 #install fonts
-sudo pacman -S ttf-fira-code
-sudo pacman -S ttf-meslo-nerd-font-powerlevel10k
+echo "Intalling fonts"
+sudo pacman -S ttf-fira-code ttf-meslo-nerd-font-powerlevel10k
 
+echo "Intalling alacritty terminal and Yay helper"
 sudo pacman -S alacritty yay
-
-
-echo criando pastas
-# create local bin directory
-mkdir -p ~/.local/bin
-#create config files and folders
-mkdir -p ~/.config/alacritty
-mkdir -p ~/.config/awesome
 
 echo "configurando shell"
 ./$script_folder/config-shell.sh
-
 
 # install jdk and ides
 echo "Instalando JDK 11 e IDEs"
@@ -42,12 +43,3 @@ echo "instalando softwares de uso diario"
 yay -S spotify
 sudo pacman -S vim
 sudo snap install teams
-
-#outros softwares
-
-# dowload copycats theme
-
-# update modified theme
-
-
-todo # create scripts folder (to automate the copying of config files separadely)
