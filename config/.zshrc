@@ -115,26 +115,23 @@ source $ZSH/oh-my-zsh.sh
 ##################################################
 source ~/.zplug/init.zsh
 
-zplug romkatv/powerlevel10k
-
 zplug zsh-users/zsh-autosuggestions
 zplug zdharma-continuum/fast-syntax-highlighting
 zplug zsh-users/zsh-completions
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-# Then, source plugins and add commands to $PATH
-zplug load 
+# # Install plugins if there are plugins that have not been installed
+# if ! zplug check; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
+# # Then, source plugins and add commands to $PATH
+# zplug load 
 ##################################################
-
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# source $HOME/.config/.aliases
+source $HOME/.config/.aliases
