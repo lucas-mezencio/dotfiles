@@ -36,14 +36,6 @@ cp $config_folder/alacritty.yml ~/.config/config/alacritty
 
 cp config/awesome/* ~/.config/awesome
 
-#oh-my-zsh
-echo "Instalando oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# zinit
-echo "Instalando zinit"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
-
 
 # vim-plug
 echo "Instalando vim_plug"
