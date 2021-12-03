@@ -1,0 +1,6 @@
+alias nv='nvim'
+alias v='nvim'
+alias vim='nvim'
+alias pacs='pacman -Ss'
+alias paci='sudo pacman -S'
+alias pacup='sudo pacman -Syu'
