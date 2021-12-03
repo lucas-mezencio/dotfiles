@@ -119,6 +119,8 @@ zplug zsh-users/zsh-autosuggestions
 zplug zdharma-continuum/fast-syntax-highlighting
 zplug zsh-users/zsh-completions
 
+zplug romkatv/powerlevel10k, as:theme, depth:1
+
 # # Install plugins if there are plugins that have not been installed
 # if ! zplug check; then
 #     printf "Install? [y/N]: "
