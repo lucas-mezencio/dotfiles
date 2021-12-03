@@ -20,8 +20,8 @@ sudo chmod +x $script_folder/*.sh
 sudo pacman -S ttf-fira-code
 sudo pacman -S ttf-meslo-nerd-font-powerlevel10k
 
-
 sudo pacman -S alacritty yay
+
 
 echo criando pastas
 # create local bin directory
@@ -30,16 +30,9 @@ mkdir -p ~/.local/bin
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/awesome
 
-echo copiando arquivos de configuração
-cp $config_folder/.zshrc ~
-cp $config_folder/alacritty.yml ~/.config/config/alacritty
+echo "configurando shell"
+./$script_folder/config-shell.sh
 
-cp config/awesome/* ~/.config/awesome
-
-
-# vim-plug
-echo "Instalando vim_plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install jdk and ides
 echo "Instalando JDK 11 e IDEs"
