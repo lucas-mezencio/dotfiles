@@ -3,7 +3,7 @@
 pwd=$(pwd)
 parent_folder=$(dirname $pwd)
 
-mkdir -p $HOME/.config/nvim
+# mkdir -p $HOME/.config/nvim/
 cp -r $parent_folder/config/nvim $HOME/.config/
 
 # INSTALL VIM PLUG (PLUGIN MANAGER)
