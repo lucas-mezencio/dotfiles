@@ -40,6 +40,5 @@ echo "Instalando JDK 11 e IDEs"
 ./$script_folder/config-ide.sh
 
 echo "instalando softwares de uso diario"
-yay -S spotify
-sudo pacman -S vim
+sudo pacman -S neovim
 sudo snap install teams
