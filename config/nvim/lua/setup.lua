@@ -128,3 +128,14 @@ vim.opt.expandtab = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+
+vim.keymap.set({ "n", "i" }, "<C-s>", function()
+	vim.cmd(":w")
+end, { silent = false })
+
+-- Optional: Save only if no popup menu is visible (Insert mode)
+vim.keymap.set("i", "<C-s>", function()
+	if not vim.fn.pumvisible() then
+		vim.cmd(":update<CR>")
+	end
+end, { silent = false })
