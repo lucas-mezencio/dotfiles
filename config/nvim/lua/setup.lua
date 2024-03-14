@@ -45,7 +45,7 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 
 -- Decrease update time
-vim.opt.updatetime = 250
+-- vim.opt.updatetime = 250
 -- vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
@@ -131,11 +131,11 @@ vim.opt.termguicolors = true
 
 vim.keymap.set({ "n", "i" }, "<C-s>", function()
 	vim.cmd(":w")
-end, { silent = false })
+end, { silent = true })
 
 -- Optional: Save only if no popup menu is visible (Insert mode)
 vim.keymap.set("i", "<C-s>", function()
 	if not vim.fn.pumvisible() then
 		vim.cmd(":update<CR>")
 	end
-end, { silent = false })
+end, { silent = true })
