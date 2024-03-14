@@ -1,44 +1,42 @@
-#! /bin/zsh
+#!/usr/bin/env bash
 
-pwd=$(pwd)
-script_folder=$pwd/scripts/
-config_folder=$pwd/config/
+THISPATH=$(dirname "$(readlink -f "$0")")
 
-#update system
-sudo pacman -Syu
+install_nvim() {
+    if ! command -v nvim &> /dev/null; then 
+        echo "nvim not found"
+    else
+        echo "installing nvim config"
+        ./scripts/install-nvim.sh $THISPATH
+    fi
+}
 
-#install base
-sudo pacman -S base
+install_alacritty() {
+    if ! command -v alacritty &> /dev/null; then 
+        echo "alacritty not found"
+    else
+        echo "installing alacritty config"
+        ./scripts/install-alacritty.sh $THISPATH
+    fi
+}
 
-echo "Creating folders"
-# create local bin directory
-mkdir -p $HOME/.local/bin
-#create config files and folders
-mkdir -p $HOME/.config/alacritty
-mkdir -p $HOME/.config/awesome
-
-# enable scripts executable
-echo "Enabling scripts"
-sudo chmod +x $script_folder/*.sh
-
-#configure git
-echo "Configuring git"
-./$script_folder/config-git.sh
-
-#install fonts
-echo "Intalling fonts"
-sudo pacman -S ttf-fira-code ttf-meslo-nerd-font-powerlevel10k
-
-echo "Intalling alacritty terminal and Yay helper"
-sudo pacman -S alacritty yay
-
-echo "configurando shell"
-./$script_folder/config-shell.sh
-
-# install jdk and ides
-echo "Instalando JDK 11 e IDEs"
-./$script_folder/config-ide.sh
-
-echo "instalando softwares de uso diario"
-sudo pacman -S neovim
-sudo snap install teams
+if [ "$#" -eq 0 ]; then
+    install_nvim
+    install_alacritty
+elif [ "$#" -eq 1 ]; then
+    case "$1" in 
+        "nvim")
+        install_nvim
+            ;; 
+        "alacritty")
+        install_alacritty
+            ;;
+        *)
+        echo "invalid option"
+        exit 1
+            ;;
+    esac
+else
+    echo "invalid options, only one argument accepted"
+    exit 1
+fi
