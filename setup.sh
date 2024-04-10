@@ -2,14 +2,6 @@
 
 THISPATH=$(dirname "$(readlink -f "$0")")
 
-install_nvim() {
-    if ! command -v nvim &> /dev/null; then 
-        echo "nvim not found"
-    else
-        echo "installing nvim config"
-        ./scripts/install-nvim.sh $THISPATH
-    fi
-}
 
 install_alacritty() {
     if ! command -v alacritty &> /dev/null; then 
@@ -41,15 +33,26 @@ install_tmux() {
     fi
 }
 
+
+install_ansible () {
+    if command -v ansible &> /dev/null; then
+        echo "ansible already installed"
+    else
+        sudo -v
+        sudo apt install -y ansible
+    fi
+}
+install_ansible
+
 if [ "$#" -eq 0 ]; then
-    install_nvim
+    # install_nvim
     install_alacritty
     install_tmux
 elif [ "$#" -eq 1 ]; then
     case "$1" in 
-        "nvim")
-        install_nvim
-            ;; 
+        # "nvim")
+        # install_nvim
+        #     ;; 
         "alacritty")
         install_alacritty
             ;;
@@ -65,3 +68,5 @@ else
     echo "invalid options, only one argument accepted"
     exit 1
 fi
+
+
