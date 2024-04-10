@@ -3,7 +3,6 @@
   become: true
   ansible.builtin.apt:
     pkg:
-      - cmake
       - gettext
       - lua5.4
       - liblua5.4-dev

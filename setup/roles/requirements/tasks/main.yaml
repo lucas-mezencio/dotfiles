@@ -1,10 +1,14 @@
 ---
 - name: Install packages
+  become: yes
   ansible.builtin.apt:
     pkg:
       - git
       - build-essential
-  become: yes
+      - curl
+      - fzf
+      - cmake
+
 - name: Create git folder
   ansible.builtin.file:
     path: '~/Git'
