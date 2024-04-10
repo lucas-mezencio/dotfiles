@@ -1,0 +1,12 @@
+---
+- name: Install packages
+  ansible.builtin.apt:
+    pkg:
+      - git
+      - build-essential
+  become: yes
+- name: Create git folder
+  ansible.builtin.file:
+    path: '~/Git'
+    state: directory
+
