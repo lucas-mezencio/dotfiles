@@ -15,3 +15,12 @@
   I akshually don't care that much, but the transparent background make it cool! Hahahaha.
 
   _Not automagically installed yet (and no preview)_
+
+- ### TODO:
+- [ ] Download and install last version of fzf
+- [ ] Improve nvim
+    - Harpoon
+    - Improve git signs and git usage
+    - Properly setup dap (debbuging)
+- [ ] (?) Installing Golang (big maybe)
+
