@@ -118,7 +118,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Personal
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open [P]roject [V]iew" })
 -- tests
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -139,3 +138,6 @@ vim.keymap.set("i", "<C-s>", function()
 		vim.cmd(":update<CR>")
 	end
 end, { silent = true })
+
+-- vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1

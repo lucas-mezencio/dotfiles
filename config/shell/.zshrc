@@ -69,6 +69,7 @@ eval "$(fzf --zsh)"
 
 alias kvim='NVIM_APPNAME="kvim" nvim'
 alias bat='batcat'
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 [ -f ~/.cargo/env ] && source $HOME/.cargo/env
+
+export PATH=$PATH:/usr/local/go/bin
 
