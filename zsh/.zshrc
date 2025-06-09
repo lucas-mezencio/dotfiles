@@ -66,9 +66,11 @@ alias la='ls -la'
 
 # Shell integrations
 eval "$(fzf --zsh)"
+eval "$(ssh-agent -s)" > /dev/null
 
-alias kvim='NVIM_APPNAME="kvim" nvim'
 alias bat='batcat'
+alias lg='lazygit'
+
 [ -f ~/.cargo/env ] && source $HOME/.cargo/env
 
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
