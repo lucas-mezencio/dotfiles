@@ -2,7 +2,7 @@
 
 * {
   font-size: 15px;
-  font-family: "CodeNewRoman Nerd Font Propo, JetbrainsMono Nerd Font, mono";
+  font-family: "RobotoMono Nerd Font";
   font-weight: 500;
 }
 window#waybar {
@@ -70,12 +70,13 @@ tooltip {
   background: alpha(@background, 0.6);
   margin: 0 4px 0 4px;
   padding-right: 12px;
+  color: #aaaaaa;
 }
 
 #idle_inhibitor.activated {
   background: alpha(@background, 0.6);
   margin: 0 4px 0 4px;
-  color: #2d3436;
+  color: #ffffff;
 }
 
 #workspaces {

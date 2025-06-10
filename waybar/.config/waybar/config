@@ -192,6 +192,6 @@
         "return-type": "json",
         "tooltip": true,
         "tooltip-format": "Power Menu",
-        "on-click": "~/.local/bin/powermenu.sh"
+        "on-click": "wlogout -b 2"
     }
 }
