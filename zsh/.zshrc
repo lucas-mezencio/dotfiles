@@ -76,3 +76,4 @@ alias lg='lazygit'
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
 export PATH=$PATH:$HOME/.local/bin
+alias vim=nvim
