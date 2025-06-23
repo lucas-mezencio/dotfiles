@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/lucas/git/Dotfiles/wallpapers/walls/MistyTrees.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#090F17",
+        "foreground": "#dee1e9",
+        "cursor": "#dee1e9"
+    },
+    "colors": {
+        "color0": "#090F17",
+        "color1": "#718BA8",
+        "color2": "#8B9FBA",
+        "color3": "#A5B5CC",
+        "color4": "#B9C6D6",
+        "color5": "#BACBE1",
+        "color6": "#C3CCDD",
+        "color7": "#dee1e9",
+        "color8": "#9b9da3",
+        "color9": "#718BA8",
+        "color10": "#8B9FBA",
+        "color11": "#A5B5CC",
+        "color12": "#B9C6D6",
+        "color13": "#BACBE1",
+        "color14": "#C3CCDD",
+        "color15": "#dee1e9"
+    }
+}

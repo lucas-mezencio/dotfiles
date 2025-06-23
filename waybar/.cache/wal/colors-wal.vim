@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/lucas/git/Dotfiles/wallpapers/walls/MistyTrees.jpg"
+let background = "#090F17"
+let foreground = "#dee1e9"
+let cursor     = "#dee1e9"
+
+" Colors
+let color0  = "#090F17"
+let color1  = "#718BA8"
+let color2  = "#8B9FBA"
+let color3  = "#A5B5CC"
+let color4  = "#B9C6D6"
+let color5  = "#BACBE1"
+let color6  = "#C3CCDD"
+let color7  = "#dee1e9"
+let color8  = "#9b9da3"
+let color9  = "#718BA8"
+let color10 = "#8B9FBA"
+let color11 = "#A5B5CC"
+let color12 = "#B9C6D6"
+let color13 = "#BACBE1"
+let color14 = "#C3CCDD"
+let color15 = "#dee1e9"
