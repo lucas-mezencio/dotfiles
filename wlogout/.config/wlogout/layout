@@ -2,24 +2,24 @@
     "label" : "lock",
     "action" : "hyprlock",
     "keybind" : "l"
-    "text": "loque (l)"
+    "text": "lock (l)"
 }
 {
     "label" : "reboot",
     "action" : "systemctl reboot || loginctl reboot",
-    "text": "rebote (r)"
+    "text": "reboot (r)"
     "keybind" : "r"
 }
 
 {
     "label" : "logout",
     "action" : "pkill Hyprland || pkill sway || pkill niri || loginctl terminate-user $USER",
-    "text": "saia (m)"
+    "text": "logout (m)"
     "keybind" : "m"
 }
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff || loginctl poweroff",
-    "text": "shupmeupawn (q)"
+    "text": "shutdown (q)"
     "keybind" : "q"
 }
