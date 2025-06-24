@@ -3,7 +3,6 @@
     "position": "top",
     "reload_style_on_change": true,
     "modules-left": [
-        // "custom/notification",
         // "clock",
         // "custom/pacman",
         // "tray"
@@ -18,6 +17,7 @@
         // "bluetooth",
         "tray",
         "idle_inhibitor",
+        "custom/notification",
         "pulseaudio",
         "network",
         "custom/power"
@@ -40,12 +40,12 @@
             ]
         }
     },
-    // "custom/notification": {
-    //     "tooltip": false,
-    //     "format": "",
-    //     "on-click": "swaync-client -t -sw",
-    //     "escape": true
-    // },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "",
+        "on-click": "swaync-client -t -sw",
+        "escape": true
+    },
     "clock": {
         "format": "{:%a %d/%m/%y %R }",
         "interval": 1,
@@ -67,7 +67,7 @@
         "tooltip-format-disconnected": "Error",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname} 🖧 ",
-        "on-click": "alacritty nmtui"
+        "on-click": "alacritty -e nmtui"
     },
     // "bluetooth": {
     //     "format-on": "󰂯",

@@ -13,6 +13,7 @@
     "modules-right": [
         "tray",
         "idle_inhibitor",
+        "custom/notification",
         "pulseaudio", 
         "network",  
         "battery",
@@ -77,6 +78,12 @@
     //     "tooltip-format": "MPD (connected)",
     //     "tooltip-format-disconnected": "MPD (disconnected)"
     // },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "",
+        "on-click": "swaync-client -t -sw",
+        "escape": true
+    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
