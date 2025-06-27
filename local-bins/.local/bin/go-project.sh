@@ -1,11 +1,11 @@
 #!/bin/env bash
 
 PROJECT=$1
-PROJECT_DIR=~/Projects/"$project"
+PROJECT_DIR=~/Projects/"$PROJECT"
 
 mkdir -p "$PROJECT_DIR"
 
-cd "$PROJECT_DIR"
+cd $PROJECT_DIR
 
 mkdir -p cmd/foo/
 touch cmd/foo/main.go
