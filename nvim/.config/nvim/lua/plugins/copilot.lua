@@ -12,6 +12,9 @@ return {
 				enabled = true,
 				virtual_text_priority = 65535,
 			},
+			filtypes = {
+				oil = false,
+			},
 		})
 	end,
 	keys = {

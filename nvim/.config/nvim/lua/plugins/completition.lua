@@ -36,6 +36,15 @@ return {
 	--- @module 'blink.cmp'
 	--- @type blink.cmp.Config
 	opts = {
+		enabled = function()
+			-- This function acts as a master switch for the completion engine.
+			-- We check the buffer's filetype and name.
+			-- If it's an oil buffer, we return false to disable all completions.
+			if vim.bo.filetype == "oil" or vim.fn.bufname():match("^oil://") then
+				return false
+			end
+			return true -- Otherwise, keep completions enabled.
+		end,
 		keymap = {
 			-- 'default' (recommended) for mappings similar to built-in completions
 			--   <c-y> to accept ([y]es) the completion.
