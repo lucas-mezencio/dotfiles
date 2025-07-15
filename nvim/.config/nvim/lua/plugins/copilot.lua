@@ -14,10 +14,11 @@ return {
 			},
 			filtypes = {
 				oil = false,
+				markdown = false,
 			},
 		})
 	end,
 	keys = {
-		{ "<leader>at", "<cmd>lua require('codeium').toggle()<cr>", desc = "Toggle Codeium" },
+		{ "<leader>ct", "<cmd>lua require('codeium').toggle()<cr>", desc = "Toggle Codeium" },
 	},
 }
