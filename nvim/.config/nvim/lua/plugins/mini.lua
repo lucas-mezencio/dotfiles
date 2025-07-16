@@ -32,8 +32,13 @@ return {
 			return "%2l:%-2v"
 		end
 
+		-- You can also add your own section by passing a string to
+		-- `mini.statusline.section` function
 		-- ... and there is more!
 		--  Check out: https://github.com/echasnovski/mini.nvim
 		-- require("mini.files").setup()
+
+		vim.keymap.set("n", "s", "<Nop>", { noremap = true, silent = true })
+		vim.keymap.set("n", "S", "<Nop>", { noremap = true, silent = true })
 	end,
 }
