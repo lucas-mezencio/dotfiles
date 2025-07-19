@@ -1,0 +1,27 @@
+#!/bin/bash
+
+VAULTS_DIR="$HOME/Vaults"
+VAULTS_DIR_FB="$HOME/Documents/Vaults"
+
+if [ -d "$VAULTS_DIR" ]; then
+    FIRST_DOT_OBSIDIAN_DIR=$(find "$VAULTS_DIR" -maxdepth 2 -type d -name ".obsidian" | head -n 1)
+elif [ -d "$VAULTS_DIR_FB" ]; then
+    FIRST_DOT_OBSIDIAN_DIR=$(find "$VAULTS_DIR_FB" -maxdepth 2 -type d -name ".obsidian" | head -n 1)
+else
+  echo "❌ No vaults container directory found."
+  exit 1
+fi
+
+
+# Check if a vault was actually found.
+if [ -z "$FIRST_DOT_OBSIDIAN_DIR" ]; then
+  echo "❌ No Obsidian vaults found in the specified directory."
+  exit 1
+fi
+
+VAULT_TO_OPEN=$(dirname "$FIRST_DOT_OBSIDIAN_DIR")
+
+export NVIM_LAUNCH_OBSIDIAN_WORKSPACES=1
+nvim "$VAULT_TO_OPEN"
+
+
