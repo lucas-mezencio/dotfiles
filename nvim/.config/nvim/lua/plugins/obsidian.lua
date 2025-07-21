@@ -33,6 +33,10 @@ return {
 					name = "personal",
 					path = "~/Vaults/MainVault/",
 				},
+				{
+					name = "work",
+					path = "~/Documentos/Vaults/CPQD/",
+				},
 			},
 			completion = {
 				nvim_cmp = false,
