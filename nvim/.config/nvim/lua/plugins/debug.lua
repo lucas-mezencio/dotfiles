@@ -138,6 +138,16 @@ return {
 
 		-- Install golang specific config
 		require("dap-go").setup({
+			dap_configurations = {
+				{
+					type = "go",
+					name = "Launch main",
+					request = "launch",
+					mode = "debug",
+					program = "${workspaceFolder}",
+					-- env = {},
+				},
+			},
 			delve = {
 				-- On Windows delve must be run attached or it crashes.
 				-- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring

@@ -35,7 +35,7 @@ return {
 				},
 				{
 					name = "work",
-					path = "~/Documentos/Vaults/CPQD/",
+					path = "~/Vaults/CPQD/",
 				},
 			},
 			completion = {
