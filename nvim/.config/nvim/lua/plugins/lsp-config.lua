@@ -108,6 +108,16 @@ return {
 					--  the definition of its *type*, not where it was *defined*.
 					map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
 
+					-- Navigates to the previous diagnostic message
+					map("g[", vim.diagnostic.goto_prev, "Previous Diagnostic")
+					-- Navigate to the next diagnostic message
+					map("g]", vim.diagnostic.goto_next, "Next Diagnostic")
+
+					-- See `:help vim.lsp.*` for documentation on any of the below functions
+					--
+					-- See also: `:help vim.lsp.buf.signature_help`
+					map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
+
 					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 					---@param client vim.lsp.Client
 					---@param method vim.lsp.protocol.Method
