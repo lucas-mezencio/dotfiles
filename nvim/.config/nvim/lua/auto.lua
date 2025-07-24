@@ -18,6 +18,19 @@ vim.api.nvim_create_autocmd("FileType", {
 	desc = "Auto-activate Obsidian plugin in Oil buffers",
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		pcall(
+			vim.diagnostic.enable(false, {
+				bufnr = 0,
+			}),
+			0
+		)
+	end,
+	desc = "Auto-activate Obsidian plugin in Markdown buffers",
+})
+
 -- Check for a special environment variable on startup
 if os.getenv("NVIM_LAUNCH_OBSIDIAN_WORKSPACES") == "1" then
 	vim.api.nvim_create_autocmd("VimEnter", {
