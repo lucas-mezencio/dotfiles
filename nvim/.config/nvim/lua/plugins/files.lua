@@ -23,7 +23,7 @@ return {
 		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 		lazy = false,
 		keys = {
-			{ "<leader>pv", "<CMD>Oil --float<CR>", { desc = "[P]roject [V]iew" } },
+			{ "<leader>pv", "<CMD>Oil<CR>", { desc = "[P]roject [V]iew" } },
 		},
 	},
 	{
