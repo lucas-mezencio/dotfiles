@@ -25,8 +25,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
-		---@module 'obsidian'
-		---@type obsidian.config.ClientOpts
 		opts = {
 			workspaces = {
 				{
