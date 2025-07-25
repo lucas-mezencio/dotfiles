@@ -1,4 +1,5 @@
 return {
+	-- todo: change to windsurf
 	"Exafunction/windsurf.nvim",
 	event = "BufEnter",
 	dependencies = {

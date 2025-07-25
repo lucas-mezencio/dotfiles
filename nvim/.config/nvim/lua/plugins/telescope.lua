@@ -54,7 +54,12 @@ return {
 			--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 			--   },
 			-- },
-			-- pickers = {}
+			pickers = {
+				find_files = {
+					-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+				},
+			}, -- pickers = {}
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
@@ -69,13 +74,13 @@ return {
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>vsh", builtin.help_tags, { desc = "[V]im [S]earch [H]elp" })
-		vim.keymap.set("n", "<leader>vsk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
+		vim.keymap.set("n", "<leader>vfk", builtin.keymaps, { desc = "[V]im [F]ind [K]eymaps" })
 		vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Search [P]roject [F]iles" })
 		vim.keymap.set("n", "<leader>pgf", builtin.git_files, { desc = "Search [P]roject [G]it [F]iles" })
-		vim.keymap.set("n", "<leader>vss", builtin.builtin, { desc = "[V]im [S]earch [S]elect Telescope" })
+		vim.keymap.set("n", "<leader>vfs", builtin.builtin, { desc = "[V]im [F]ind [S]elect Telescope" })
 		vim.keymap.set("n", "<leader>ps", builtin.grep_string, { desc = "[P]roject [S]earch current [W]ord" })
 		vim.keymap.set("n", "<leader>pg", builtin.live_grep, { desc = "[P]roject Seach by [G]rep" })
-		vim.keymap.set("n", "<leader>psd", builtin.diagnostics, { desc = "[P]roject [S]earch [D]iagnostics" })
+		vim.keymap.set("n", "<leader>pd", builtin.diagnostics, { desc = "[P]roject Search [D]iagnostics" })
 		vim.keymap.set("n", "<leader>psr", builtin.resume, { desc = "[P]roject [S]earch [R]esume" })
 		vim.keymap.set(
 			"n",
