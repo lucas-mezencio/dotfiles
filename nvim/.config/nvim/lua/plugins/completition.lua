@@ -26,12 +26,14 @@ return {
 				--     require('luasnip.loaders.from_vscode').lazy_load()
 				--   end,
 				-- },
+				--
+				{
+					"huijiro/blink-cmp-supermaven",
+				},
 			},
 			opts = {},
 		},
 		"folke/lazydev.nvim",
-
-		"Exafunction/codeium.nvim",
 	},
 	--- @module 'blink.cmp'
 	--- @type blink.cmp.Config
@@ -83,19 +85,45 @@ return {
 			-- By default, you may press `<c-space>` to show the documentation.
 			-- Optionally, set `auto_show = true` to show the documentation after a delay.
 			documentation = { auto_show = false, auto_show_delay_ms = 500 },
+			list = {
+				selection = { preselect = false, auto_insert = true },
+			},
+			menu = {
+				draw = {
+					components = {
+						kind_icon = {
+							text = function(ctx)
+								local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+								return kind_icon
+							end,
+							highlight = function(ctx)
+								local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+								return hl
+							end,
+						},
+						kind = {
+							highlight = function(ctx)
+								local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+								return hl
+							end,
+						},
+					},
+				},
+			},
 		},
 
 		sources = {
 			default = {
 				"lsp",
 				"path",
+				"buffer",
 				"snippets",
 				"lazydev",
-				"codeium",
+				"supermaven",
 			},
 			providers = {
 				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
-				codeium = { name = "Codeium", module = "codeium.blink", async = true },
+				supermaven = { module = "blink-cmp-supermaven", async = true, score_offset = -2 },
 			},
 		},
 

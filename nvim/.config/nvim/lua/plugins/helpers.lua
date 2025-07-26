@@ -93,5 +93,8 @@ return {
 				},
 			},
 		},
+		keys = {
+			{ "<leader>pt", "<CMD>TodoTelescope<CR>", { desc = "[P]roject Find [T]odo comments" } },
+		},
 	},
 }
