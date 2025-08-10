@@ -77,3 +77,14 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
 export PATH=$PATH:$HOME/.local/bin
 alias vim=nvim
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.4.7/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
+
+export KUBECONFIG=~/.kube/config
+export KUBE_EDITOR="nvim"
+source <(kubectl completion zsh)
+alias k=kubectl
+
