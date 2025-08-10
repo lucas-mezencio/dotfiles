@@ -7,16 +7,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "oil",
-	callback = function()
-		-- This function tells obsidian.nvim to check the current buffer's path.
-		-- The `0` means the current buffer.
-		-- We wrap it in pcall to prevent errors if you are using oil outside of a vault.
-		pcall(require("obsidian").attach_and_get_client, 0)
-	end,
-	desc = "Auto-activate Obsidian plugin in Oil buffers",
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "oil",
+-- 	callback = function()
+-- 		-- This function tells obsidian.nvim to check the current buffer's path.
+-- 		-- The `0` means the current buffer.
+-- 		-- We wrap it in pcall to prevent errors if you are using oil outside of a vault.
+-- 		pcall(require("obsidian").attach_and_get_client, 0)
+-- 	end,
+-- 	desc = "Auto-activate Obsidian plugin in Oil buffers",
+-- })
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "markdown",
