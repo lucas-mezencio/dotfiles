@@ -149,4 +149,11 @@ end, { silent = true })
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.g.loaded_netrw = 1
 --
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 2
+
+vim.filetype.add({
+	extension = {
+		gohtml = "html",
+	},
+})
+-- vim.treesitter.language.register("html", "gohtml")
