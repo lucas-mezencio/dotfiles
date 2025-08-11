@@ -42,7 +42,6 @@ return { -- Autoformat
 			-- You can use 'stop_after_first' to run the first available formatter from the list
 			html = { "gpreattier", stop_after_first = true },
 			typescript = { "gpreattier", stop_after_first = true },
-			html = { "gpreattier", stop_after_first = true },
 			javascript = { "gpreattier", stop_after_first = true },
 			go = { "gofmt", "goimports" },
 			json = { "gpreattier" },

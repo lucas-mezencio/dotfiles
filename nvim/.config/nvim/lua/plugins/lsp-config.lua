@@ -111,22 +111,32 @@ return {
 						[vim.diagnostic.severity.HINT] = "󰌶 ",
 					},
 				} or {},
-				virtual_lines = { severity = vim.diagnostic.severity.ERROR },
-				underline = { severity = vim.diagnostic.severity.ERROR },
-				virtual_text = false,
-				-- virtual_text = {
-				-- 	source = "if_many",
-				-- 	spacing = 2,
-				-- 	format = function(diagnostic)
-				-- 		local diagnostic_message = {
-				-- 			[vim.diagnostic.severity.ERROR] = diagnostic.message,
-				-- 			[vim.diagnostic.severity.WARN] = diagnostic.message,
-				-- 			[vim.diagnostic.severity.INFO] = diagnostic.message,
-				-- 			[vim.diagnostic.severity.HINT] = diagnostic.message,
-				-- 		}
-				-- 		return diagnostic_message[diagnostic.severity]
-				-- 	end,
-				-- },
+				underline = {
+					source = "if_many",
+					spacing = 2,
+					format = function(diagnostic)
+						local diagnostic_message = {
+							[vim.diagnostic.severity.ERROR] = diagnostic.message,
+							[vim.diagnostic.severity.WARN] = diagnostic.message,
+							[vim.diagnostic.severity.INFO] = diagnostic.message,
+							[vim.diagnostic.severity.HINT] = diagnostic.message,
+						}
+						return diagnostic_message[diagnostic.severity]
+					end,
+				},
+				virtual_text = {
+					source = "if_many",
+					spacing = 2,
+					format = function(diagnostic)
+						local diagnostic_message = {
+							[vim.diagnostic.severity.ERROR] = diagnostic.message,
+							[vim.diagnostic.severity.WARN] = diagnostic.message,
+							[vim.diagnostic.severity.INFO] = diagnostic.message,
+							[vim.diagnostic.severity.HINT] = diagnostic.message,
+						}
+						return diagnostic_message[diagnostic.severity]
+					end,
+				},
 			})
 
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
