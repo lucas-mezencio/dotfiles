@@ -8,7 +8,7 @@ return {
 			view_options = {
 				show_hidden = true,
 			},
-			-- watch_for_changes = true,
+			watch_for_changes = true,
 		},
 
 		-- Optional dependencies
@@ -20,15 +20,15 @@ return {
 			{ "<leader>pv", "<CMD>Oil<CR>", { desc = "[P]roject [V]iew" } },
 		},
 	},
-	-- note: those might causing slowness on oil
-	{
-		"JezerM/oil-lsp-diagnostics.nvim",
-		dependencies = { "stevearc/oil.nvim" },
-		opts = {},
-	},
-	{
-		"benomahony/oil-git.nvim",
-		dependencies = { "stevearc/oil.nvim" },
-		-- No opts or config needed! Works automatically
-	},
+	-- -- note: those might causing slowness on oil
+	-- {
+	-- 	"JezerM/oil-lsp-diagnostics.nvim",
+	-- 	dependencies = { "stevearc/oil.nvim" },
+	-- 	opts = {},
+	-- },
+	-- {
+	-- 	"benomahony/oil-git.nvim",
+	-- 	dependencies = { "stevearc/oil.nvim" },
+	-- 	-- No opts or config needed! Works automatically
+	-- },
 }
