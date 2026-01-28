@@ -5,6 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export KUBECONFIG=~/.kube/config
+export KUBE_EDITOR="nvim"
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export PATH=$PATH:$HOME/.local/bin
+
+
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -24,13 +31,44 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
+fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.4.7/contrib/zsh $fpath)
+
 # Load completitions
 autoload -U compinit && compinit
 zinit cdreplay -q
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# Aliases
+alias k=kubectl
+alias vim='nvim'
+alias c='clear'
+alias bat='batcat'
+alias lg='lazygit'
+if command -v eza &> /dev/null; then
+  alias ls='eza -lh --group-directories-first --icons=auto'
+  alias la='eza -la --icons=auto'
+  alias lt='eza --tree --level=2 --icons'
+else
+  alias ls='ls --color=auto'
+  alias la='ls -la'
+fi
+
+# Shell integrations
+# Sources
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.local/share/bob/env/env.sh ] && source ~/.local/share/bob/env/env.sh
+[ -f ~/.cargo/env ] && source $HOME/.cargo/env
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+  # Se quiser o comportamento do 'zd' que você tinha no bash:
+  alias cd='z'
+  alias zi='z -i' # Busca interativa com fzf
+fi
+
+eval "$(ssh-agent -s)" > /dev/null
+
+source <(kubectl completion zsh)
 
 # Keybindings
 bindkey -e
@@ -57,34 +95,4 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-# Aliases
-alias ls='ls --color'
-alias vim='nvim'
-alias c='clear'
-alias la='ls -la'
-
-# Shell integrations
-eval "$(fzf --zsh)"
-eval "$(ssh-agent -s)" > /dev/null
-
-alias bat='batcat'
-alias lg='lazygit'
-
-[ -f ~/.cargo/env ] && source $HOME/.cargo/env
-
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-
-export PATH=$PATH:$HOME/.local/bin
-alias vim=nvim
-
-# >>>> Vagrant command completion (start)
-fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.4.7/contrib/zsh $fpath)
-compinit
-# <<<<  Vagrant command completion (end)
-
-export KUBECONFIG=~/.kube/config
-export KUBE_EDITOR="nvim"
-source <(kubectl completion zsh)
-alias k=kubectl
 
