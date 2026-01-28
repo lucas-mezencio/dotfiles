@@ -58,6 +58,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.local/share/bob/env/env.sh ] && source ~/.local/share/bob/env/env.sh
 [ -f ~/.cargo/env ] && source $HOME/.cargo/env
+[ -f ~/.envs/env ] && source $HOME/.envs/env
 
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
