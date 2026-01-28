@@ -9,6 +9,11 @@ return {
         explorer = {
           layout = { preset = "default" },
           auto_close = true,
+          hidden = true,
+        },
+        files = {
+          hidden = true,
+          ignored = true,
         },
       },
     },
