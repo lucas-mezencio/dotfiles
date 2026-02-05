@@ -32,6 +32,7 @@ zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
 fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.4.7/contrib/zsh $fpath)
+fpath=(~/.zsh/completions $fpath)
 
 # Load completitions
 autoload -U compinit && compinit
@@ -55,7 +56,8 @@ fi
 # Shell integrations
 # Sources
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 [ -f ~/.local/share/bob/env/env.sh ] && source ~/.local/share/bob/env/env.sh
 [ -f ~/.cargo/env ] && source $HOME/.cargo/env
 [ -f ~/.envs/env ] && source $HOME/.envs/env
@@ -96,4 +98,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/lucas/.lmstudio/bin"
+# End of LM Studio CLI section
 
