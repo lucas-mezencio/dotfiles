@@ -10,7 +10,7 @@ return {
       { "<leader>h", name = "+harpoon" },
 
       -- Disable
-      { "<leader>s", hidden = true },
+      { "<leader>s", desc = "Save file" },
       { "<leader>sn", hidden = true },
     },
   },

@@ -203,11 +203,19 @@ return {
       end,
       desc = "[P]roject [S]earch [U]ndo History",
     },
+    {
+      "<leader>vn",
+      function()
+        Snacks.picker.notifications()
+      end,
+      desc = "Notification History",
+    },
 
     { "<leader>psB", false },
     { "<leader>psp", false },
-    { '<leader>ps"', false },
-    { '<leader>s"', false },
+    { "<leader>ps", false },
+    { "<leader>s", false },
+    { "<leader>n", false },
     -- find
     { "<leader>fb", false },
     { "<leader>fc", false },
