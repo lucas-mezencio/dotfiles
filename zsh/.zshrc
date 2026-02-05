@@ -104,3 +104,5 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 export PATH="$PATH:/home/lucas/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+eval "$(/home/lucas/.local/bin/mise activate zsh)" # added by https://mise.run/zsh
