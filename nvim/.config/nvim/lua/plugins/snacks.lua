@@ -10,6 +10,7 @@ return {
           layout = { preset = "default" },
           auto_close = true,
           hidden = true,
+          ignored = true,
         },
         files = {
           hidden = true,
