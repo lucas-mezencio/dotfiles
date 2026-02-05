@@ -1,8 +1,0 @@
-- name: Install Dotfiles
-  hosts: localhost
-
-  roles:
-    - requirements
-    - nvim
-    - alacritty
-    - tmux
