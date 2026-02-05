@@ -12,6 +12,22 @@ return {
           },
         },
         keys = {
+          { "<leader>ss", false }, -- lsp symbols
+          { "<leader>sS", false }, -- lsp workspace symbols
+          {
+            "<leader>pss",
+            function()
+              Snacks.picker.lsp_symbols()
+            end,
+            desc = "Lsp Symbols",
+          },
+          {
+            "<leader>psS",
+            function()
+              Snacks.picker.lsp_workspace_symbols()
+            end,
+            desc = "Lsp Workspace Symbols",
+          },
           {
             "<leader>cl",
             function()

@@ -190,7 +190,7 @@ return {
       desc = "[P]roject [S]earch [Q]uickfix List",
     },
     {
-      "<leader>psr",
+      "<leader>psR",
       function()
         Snacks.picker.resume()
       end,
@@ -240,5 +240,11 @@ return {
     { "<leader>sq", false },
     { "<leader>sR", false },
     { "<leader>su", false },
+    { "<leader>sG", false }, -- lsp workspace symbols
+
+    { "<leader>sr", false }, -- search and replace
+    { "<leader>st", false }, -- todo
+    { "<leader>sT", false }, -- TODO/FIX/FIXME
+    { "<leader>sW", false }, -- visual selection or word
   },
 }

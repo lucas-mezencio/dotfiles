@@ -6,3 +6,4 @@ vim.g.have_nerd_font = true
 vim.g.maplocalleader = " "
 vim.o.scrolloff = 15
 vim.o.confirm = true
+vim.opt.tabstop = 4

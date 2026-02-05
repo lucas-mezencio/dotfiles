@@ -1,4 +1,8 @@
 return {
-  { import = "lazyvim.plugins.extras.ai.supermaven" },
-  { import = "lazyvim.plugins.extras.ai.sidekick", enabled = false },
+  {
+    import = "lazyvim.plugins.extras.ai.copilot",
+    opts = {
+      panel = { enable = true },
+    },
+  },
 }
