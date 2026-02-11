@@ -70,6 +70,8 @@ if command -v zoxide &> /dev/null; then
 fi
 
 eval "$(ssh-agent -s)" > /dev/null
+eval "$(/home/lucas/.local/bin/mise activate zsh)" # added by https://mise.run/zsh
+eval "$(atuin init zsh)"
 
 source <(kubectl completion zsh)
 
@@ -101,8 +103,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/lucas/.lmstudio/bin"
+[ -f ~/.cargo/env ] && export PATH="$PATH:/home/lucas/.lmstudio/bin"
 # End of LM Studio CLI section
 
 
-eval "$(/home/lucas/.local/bin/mise activate zsh)" # added by https://mise.run/zsh
