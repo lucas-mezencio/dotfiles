@@ -4,6 +4,7 @@ return {
   ---@type snacks.Config
   opts = {
     explorer = { layout = "default" }, -- enabled false to oil
+    -- ui_select = true,
     picker = {
       sources = {
         explorer = {
