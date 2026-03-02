@@ -34,10 +34,38 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+vim.keymap.set("n", "<C-S-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-S-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-S-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-S-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 vim.keymap.del("n", "<C-s>")
 vim.keymap.set({ "n" }, "<leader>s", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- Copilot keybindings (C-; to accept, C-n/C-p to navigate)
+vim.keymap.set("i", "<C-l>", function()
+  local copilot = require("copilot.suggestion")
+  if copilot.is_visible() then
+    copilot.accept()
+  end
+end, { desc = "Accept Copilot suggestion" })
+
+vim.keymap.set("i", "<C-n>", function()
+  local copilot = require("copilot.suggestion")
+  if copilot.is_visible() then
+    copilot.next()
+  else
+    -- Fallback to blink.cmp next
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, false, true), "n", false)
+  end
+end, { desc = "Next Copilot suggestion or blink item" })
+
+vim.keymap.set("i", "<C-p>", function()
+  local copilot = require("copilot.suggestion")
+  if copilot.is_visible() then
+    copilot.prev()
+  else
+    -- Fallback to blink.cmp prev
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, false, true), "n", false)
+  end
+end, { desc = "Previous Copilot suggestion or blink item" })
