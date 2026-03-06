@@ -10,3 +10,11 @@ vim.opt.tabstop = 4
 
 -- Disable inlay hints by default (toggle with <leader>uh)
 vim.lsp.inlay_hint.enable(false)
+
+vim.filetype.add({
+  pattern = {
+    [".*%.env%.[%w_.-]+"] = "sh",
+    [".*/%.envs/.*"] = "sh",
+    [".*nginx.*%.conf%.template"] = "nginx",
+  },
+})

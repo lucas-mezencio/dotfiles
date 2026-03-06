@@ -60,7 +60,12 @@ fi
 source <(fzf --zsh)
 [ -f ~/.local/share/bob/env/env.sh ] && source ~/.local/share/bob/env/env.sh
 [ -f ~/.cargo/env ] && source $HOME/.cargo/env
-[ -f ~/.envs/env ] && source $HOME/.envs/env
+
+if [ -d "$HOME/.envs" ]; then
+  for env_file in "$HOME/.envs"/*; do
+    [ -r "$env_file" ] && source "$env_file"
+  done
+fi
 
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
@@ -105,7 +110,5 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Added by LM Studio CLI (lms)
 [ -f ~/.cargo/env ] && export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
-
-
 
 . "$HOME/.atuin/bin/env"
