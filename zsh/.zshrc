@@ -111,4 +111,4 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 [ -f ~/.cargo/env ] && export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
-. "$HOME/.atuin/bin/env"
+[ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"

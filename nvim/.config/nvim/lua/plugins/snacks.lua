@@ -212,6 +212,20 @@ return {
       end,
       desc = "Notification History",
     },
+    {
+      "<leader>xx",
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = "Search Diagnostics",
+    },
+    {
+      "<leader>xX",
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = "Search Diagnostics",
+    },
 
     { "<leader>psB", false },
     { "<leader>psp", false },

@@ -37,7 +37,14 @@ return {
             desc = "Lsp Info",
           },
           { "gd", vim.lsp.buf.definition, desc = "[G]oto [D]efinition", has = "definition" },
-          { "grr", vim.lsp.buf.references, desc = "[G]oto [R]eferences", nowait = true },
+          {
+            "grr",
+            function()
+              Snacks.picker.lsp_references()
+            end,
+            desc = "[G]oto [R]eferences",
+            nowait = true,
+          },
           { "gi", vim.lsp.buf.implementation, desc = "Goto [I]mplementation" },
           { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
           { "gD", vim.lsp.buf.declaration, desc = "[G]oto [D]eclaration" },
