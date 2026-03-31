@@ -1,7 +1,0 @@
-[Unit]
-Description=Obsidian Vaults Backup with GDrive
-
-[Service]
-Type=oneshot
-ExecStart=/home/lucas/.local/bin/obsidian-bisync.sh
-

@@ -112,3 +112,9 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # End of LM Studio CLI section
 
 [ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"
+
+bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s '\eh' "tmux-sessionizer -s 0\n"
+bindkey -s '\et' "tmux-sessionizer -s 1\n"
+bindkey -s '\en' "tmux-sessionizer -s 2\n"
+bindkey -s '\es' "tmux-sessionizer -s 3\n"
