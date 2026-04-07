@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# sway-launcher — ensure walker service is running, then open it
+# Mirrors omarchy-launch-walker behaviour.
+
+# Start the walker background service if not already up
+if ! pgrep -x "walker" > /dev/null; then
+    walker --gapplication-service &
+    sleep 0.3
+fi
+
+exec walker

@@ -1,0 +1,33 @@
+# mako notification daemon configuration
+
+# Position
+anchor=top-right
+margin=10
+
+# Size
+width=400
+height=200
+
+# Timing
+default-timeout=5000
+ignore-timeout=0
+
+# Style (Catppuccin Mocha)
+background-color=#1e1e2edd
+text-color=#cdd6f4
+border-color=#313244
+progress-color=over #313244
+
+border-size=2
+border-radius=6
+padding=12
+
+font=JetBrainsMono Nerd Font 11
+
+# Icons
+max-icon-size=48
+icon-location=left
+
+# Do-not-disturb mode
+[mode=do-not-disturb]
+invisible=1

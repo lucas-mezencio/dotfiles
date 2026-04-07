@@ -1,0 +1,84 @@
+# Sway configuration — work ThinkPad (Ubuntu 24.04)
+# Apply with: stow sway   (from ~/dotfiles)
+# Validate:   sway --validate
+#
+# ── Dependencies ─────────────────────────────────────────────────────────────
+# sudo apt install sway swaylock swayidle mako-notifier waybar swaybg \
+#   xdg-utils nautilus fonts-font-awesome brightnessctl playerctl \
+#   grim slurp wl-clipboard dex polkit-gnome pactl
+#
+# ghostty : https://github.com/ghostty-org/ghostty/releases  (download .deb)
+# walker  : https://github.com/abenz1267/walker/releases      (download binary → ~/.local/bin/)
+# ─────────────────────────────────────────────────────────────────────────────
+
+set $mod Mod4
+
+# Default terminal
+set $term ghostty
+
+# ── Sub-configs ───────────────────────────────────────────────────────────────
+
+include ~/.config/sway/outputs.conf
+include ~/.config/sway/input.conf
+include ~/.config/sway/bindings.conf
+include ~/.config/sway/autostart.conf
+
+# ── Look & feel ───────────────────────────────────────────────────────────────
+
+# Font for window titles and sway bar
+font pango:JetBrainsMono Nerd Font 10
+
+# Gaps (mirrors omarchy defaults: gaps_in=5, gaps_out=10)
+gaps inner 5
+gaps outer 10
+
+# Borders
+default_border          pixel 2
+default_floating_border pixel 2
+hide_edge_borders       smart
+
+# Colors:                border      bg          text        indicator   child_border
+# Catppuccin Mocha palette
+set $crust    #11111b
+set $mantle   #181825
+set $base     #1e1e2e
+set $surface0 #313244
+set $overlay0 #6c7086
+set $text     #cdd6f4
+set $teal     #94e2d5
+set $lavender #b4befe
+
+client.focused          $teal     $base     $text     $teal     $teal
+client.unfocused        $surface0 $base     $overlay0 $surface0 $surface0
+client.focused_inactive $surface0 $base     $overlay0 $surface0 $surface0
+client.urgent           $lavender $base     $text     $lavender $lavender
+
+# ── Window rules ──────────────────────────────────────────────────────────────
+
+# Default opacity (mirrors omarchy: 0.97 focused / 0.90 unfocused)
+# Requires: sway 1.8+ or sway-borders with opacity support
+# for_window [class=".*"]        opacity 0.97
+# for_window [app_id=".*"]       opacity 0.97
+
+# Floating windows
+for_window [app_id="pavucontrol"]               floating enable
+for_window [app_id="nm-connection-editor"]      floating enable
+for_window [class="1Password"]                  floating enable
+for_window [app_id="org.gnome.Nautilus"]        floating enable, resize set 1200 800
+
+# Picture-in-picture
+for_window [title="Picture-in-Picture"]         floating enable, sticky enable
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+
+# Focus follows mouse
+focus_follows_mouse yes
+
+# Don't warp cursor to focused window
+mouse_warping none
+
+# Sway moves focus to urgent windows automatically
+focus_on_window_activation smart
+
+# XWayland support (needed for apps that don't have native Wayland)
+xwayland enable

@@ -1,0 +1,43 @@
+# swaylock configuration
+
+# Background
+color=1e1e2e
+
+# Hide failed attempts text until actually failing
+show-failed-attempts
+
+# Don't show keyboard indicator when idle
+indicator-idle-visible
+
+# Indicator style
+indicator-radius=120
+indicator-thickness=10
+
+# Colors (Catppuccin Mocha)
+inside-color=1e1e2e
+inside-clear-color=1e1e2e
+inside-ver-color=1e1e2e
+inside-wrong-color=1e1e2e
+
+ring-color=313244
+ring-clear-color=94e2d5
+ring-ver-color=b4befe
+ring-wrong-color=f38ba8
+
+key-hl-color=94e2d5
+bs-hl-color=f38ba8
+
+line-color=00000000
+line-clear-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+text-color=cdd6f4
+text-clear-color=cdd6f4
+text-ver-color=cdd6f4
+text-wrong-color=f38ba8
+
+# Misc
+font=JetBrainsMono Nerd Font
+font-size=16
+ignore-empty-password

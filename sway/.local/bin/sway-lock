@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# sway-lock — lock the screen
+# Mirrors omarchy-lock-screen behaviour for sway.
+
+# Kill any active screensaver so it doesn't compete with swaylock
+pkill -x swaylock 2>/dev/null || true
+
+# Lock 1Password if running
+if pgrep -x "1password" > /dev/null; then
+    1password --lock 2>/dev/null || true
+fi
+
+# Lock the screen (-f = fork so this script returns immediately)
+exec swaylock -f

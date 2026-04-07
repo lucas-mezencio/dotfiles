@@ -1,0 +1,113 @@
+/* Waybar style — Catppuccin Mocha */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border-bottom: 2px solid #313244;
+}
+
+/* Left — workspaces */
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: #6c7086;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    background-color: #313244;
+    color: #cdd6f4;
+}
+
+#workspaces button.focused {
+    color: #cdd6f4;
+    border-bottom: 2px solid #94e2d5;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+    border-bottom: 2px solid #f38ba8;
+}
+
+#mode {
+    background-color: #fab387;
+    color: #1e1e2e;
+    padding: 0 8px;
+    font-weight: bold;
+}
+
+#scratchpad {
+    color: #cba6f7;
+    padding: 0 8px;
+}
+
+/* Center — clock */
+#clock {
+    color: #cdd6f4;
+    padding: 0 12px;
+    font-weight: 500;
+}
+
+/* Right modules — shared */
+#battery,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 10px;
+    color: #cdd6f4;
+}
+
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.warning {
+    color: #fab387;
+}
+
+#battery.critical {
+    color: #f38ba8;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    to { color: #1e1e2e; background-color: #f38ba8; }
+}
+
+#network {
+    color: #89dceb;
+}
+
+#network.disconnected {
+    color: #6c7086;
+}
+
+#pulseaudio {
+    color: #cba6f7;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+#tray {
+    padding: 0 6px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
+}
