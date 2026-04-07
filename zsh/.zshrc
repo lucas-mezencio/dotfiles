@@ -55,6 +55,7 @@ fi
 
 # Shell integrations
 # Sources
+eval "$($HOME/.local/bin/mise activate zsh)" # added by https://mise.run/zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(fzf --zsh)
@@ -75,7 +76,6 @@ if command -v zoxide &> /dev/null; then
 fi
 
 eval "$(ssh-agent -s)" > /dev/null
-eval "$($HOME/.local/bin/mise activate zsh)" # added by https://mise.run/zsh
 eval "$(atuin init zsh)"
 
 source <(kubectl completion zsh)
