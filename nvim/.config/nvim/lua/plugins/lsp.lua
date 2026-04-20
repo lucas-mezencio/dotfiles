@@ -3,6 +3,20 @@ return {
   opts = {
     inlay_hints = { enabled = false },
     servers = {
+      clangd = {
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--completion-style=detailed",
+          "--query-driver=" .. table.concat({
+            "/usr/bin/gcc",
+            "/usr/bin/g++",
+            vim.fn.expand("$HOME") .. "/.platformio/packages/**/bin/*-gcc",
+            vim.fn.expand("$HOME") .. "/.platformio/packages/**/bin/*-g++",
+          }, ","),
+        },
+      },
       ["*"] = {
         capabilities = {
           workspace = {

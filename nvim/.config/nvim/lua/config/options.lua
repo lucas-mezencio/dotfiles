@@ -7,7 +7,7 @@ vim.g.maplocalleader = " "
 vim.o.scrolloff = 15
 vim.o.confirm = true
 vim.opt.tabstop = 4
-
+vim.opt.colorcolumn = "80,120"
 -- Disable inlay hints by default (toggle with <leader>uh)
 vim.lsp.inlay_hint.enable(false)
 
