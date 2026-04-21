@@ -64,6 +64,13 @@ return {
         "    # PlatformIO projects set their own standard via compile_commands.json.",
         "    - -std=c11",
         "    - -xc",
+        "",
+        "Diagnostics:",
+        "  Suppress:",
+        "    # Arduino ESP32's FreeRTOS uses ##__VA_ARGS__ comma-elision (GCC-specific).",
+        "    # Clang evaluates portGET_ARGUMENT_COUNT() as 1 not 0, failing this assert.",
+        "    # The actual GCC build is unaffected.",
+        "    - static_assert_requirement_failed",
       }
       vim.fn.writefile(lines, cwd .. "/.clangd")
     end
@@ -115,14 +122,20 @@ return {
       end,
     })
 
-    -- Manual trigger: use after adding new libraries to platformio.ini
-    vim.api.nvim_create_user_command("PioClangd", function()
+    -- Override the plugin's :PioLSP so Pioinit's post-init callback runs our
+    -- full setup (fix compiler paths + write .clangd) instead of the bare one.
+    vim.api.nvim_create_user_command("PioLSP", function()
       local cwd = vim.fn.getcwd()
       if vim.fn.filereadable(cwd .. "/platformio.ini") == 0 then
         vim.notify("[PlatformIO] No platformio.ini in current directory", vim.log.levels.ERROR)
         return
       end
       pio_clangd_setup(cwd)
-    end, { desc = "Rebuild PlatformIO LSP index" })
+    end, { force = true, desc = "Setup PlatformIO LSP" })
+
+    -- Alias kept for muscle memory
+    vim.api.nvim_create_user_command("PioClangd", function()
+      vim.cmd("PioLSP")
+    end, { desc = "Setup PlatformIO LSP (alias for PioLSP)" })
   end,
 }
