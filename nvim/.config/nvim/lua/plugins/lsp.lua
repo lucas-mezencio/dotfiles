@@ -15,6 +15,7 @@ return {
             vim.fn.expand("$HOME") .. "/.platformio/packages/**/bin/*-gcc",
             vim.fn.expand("$HOME") .. "/.platformio/packages/**/bin/*-g++",
           }, ","),
+          "--fallback-style=file",
         },
       },
       ["*"] = {

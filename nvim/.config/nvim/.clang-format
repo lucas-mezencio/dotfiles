@@ -1,0 +1,25 @@
+BasedOnStyle: Google
+IndentWidth: 4
+UseTab: ForIndentation
+TabWidth: 4
+IndentCaseLabels: true
+BreakBeforeBraces: Attach
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+ColumnLimit: 120
+SpaceAfterCStyleCast: false
+SpaceBeforeParens: "Never"
+PointerAlignment: Left
+AlignConsecutiveAssignments: None
+AlignConsecutiveDeclarations: None
+NamespaceIndentation: None
+SpacesBeforeTrailingComments: 1
+CompactNamespaces: true
+FixNamespaceComments: true
+ReflowComments: IndentOnly
+CommentPragmas: "^ NOLINT"
+AlignTrailingComments: false
+BinPackParameters: BinPack
+BinPackArguments: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
