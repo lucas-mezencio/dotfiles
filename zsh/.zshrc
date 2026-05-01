@@ -42,7 +42,6 @@ zinit cdreplay -q
 alias k=kubectl
 alias vim='nvim'
 alias c='clear'
-alias bat='batcat'
 alias lg='lazygit'
 if command -v eza &> /dev/null; then
   alias ls='eza -lh --group-directories-first --icons=auto'
@@ -66,13 +65,6 @@ if [ -d "$HOME/.envs" ]; then
   for env_file in "$HOME/.envs"/*; do
     [ -r "$env_file" ] && source "$env_file"
   done
-fi
-
-if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
-  # Se quiser o comportamento do 'zd' que você tinha no bash:
-  alias cd='z'
-  alias zi='z -i' # Busca interativa com fzf
 fi
 
 eval "$(ssh-agent -s)" > /dev/null
@@ -113,3 +105,10 @@ if [ -f ~/.cargo/env ]; then
 fi
 # End of LM Studio CLI section
 
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+  # Se quiser o comportamento do 'zd' que você tinha no bash:
+  alias cd='z'
+  alias zi='z -i' # Busca interativa com fzf
+fi
