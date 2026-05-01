@@ -70,16 +70,6 @@ vim.keymap.set("i", "<C-p>", function()
   end
 end, { desc = "Previous Copilot suggestion or blink item" })
 
-vim.keymap.set("n", "<leader>at", function()
-  local client = require("copilot.client")
-  local command = require("copilot.command")
-  if client.is_disabled() then
-    command.enable()
-  else
-    command.disable()
-  end
-end, { desc = "Toggle Copilot" })
-
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<M-h>", "<cmd>silent !tmux neww tmux-sessionizer -s 0<CR>")
 vim.keymap.set("n", "<M-t>", "<cmd>silent !tmux neww tmux-sessionizer -s 1<CR>")
