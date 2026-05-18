@@ -12,16 +12,25 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
+      completion = {
+        ghost_text = {
+          enabled = false,
+        },
+        accept = {
+          auto_brackets = {
+            enabled = true,
+          },
+        },
+      },
+      keys = {
+        ["<CR>"] = false,
+      },
       sources = {
         providers = {
-          path = {
-            -- Path sources triggered by "/" interfere with CopilotChat commands
-            enabled = function()
-              return vim.bo.filetype ~= "copilot-chat"
-            end,
-          },
+          path = {},
         },
       },
     },
   },
+  { "b0o/schemastore.nvim" },
 }

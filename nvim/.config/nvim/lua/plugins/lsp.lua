@@ -18,8 +18,61 @@ return {
           "--fallback-style=file",
         },
       },
+      yamlls = {
+        -- Certifique-se de que o SchemaStore esteja instalado para facilitar,
+        -- mas aqui forçamos os esquemas do Traefik:
+        capabilities = {
+          textDocument = {
+            completion = {
+              completionItem = { snippetSupport = true },
+            },
+          },
+        },
+        settings = {
+          yaml = {
+            schemaStore = {
+              enable = false,
+              url = "",
+            },
+            schemas = require("schemastore").yaml.schemas({
+              extra = {
+                {
+                  name = "traefik-v3-static",
+                  description = "Traefik Static Config (v3)",
+                  fileMatch = { "traefik.yaml", "traefik.yml" },
+                  -- URL direta para o schema do Traefik v3 no SchemaStore
+                  url = "https://json.schemastore.org/traefik-v3.json",
+                },
+                {
+                  name = "traefik-v3-dynamic",
+                  description = "Traefik Dynamic Config",
+                  fileMatch = { "dynamic-config.yaml", "dynamic-config.yml", "rules.yaml", "traefik-dynamic.yaml" },
+                  url = "https://www.schemastore.org/traefik-v3-file-provider.json",
+                },
+                {
+                  name = "Taskfile",
+                  description = "go-task taskfile",
+                  fileMatch = { "Taskfile.yaml", "Taskfile.yml", "taskfile.yaml", "taskfile.yml" },
+                  url = "https://taskfile.dev/schema.json",
+                },
+              },
+            }),
+            format = { enable = true },
+            validate = true,
+            completion = true,
+            hover = true,
+          },
+        },
+      },
       ["*"] = {
         capabilities = {
+          textDocument = {
+            completion = {
+              completionItem = {
+                snippetSupport = false,
+              },
+            },
+          },
           workspace = {
             fileOperations = {
               didRename = true,
