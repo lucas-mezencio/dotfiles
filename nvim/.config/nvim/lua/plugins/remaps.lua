@@ -87,4 +87,30 @@ return {
       },
     },
   },
+
+  {
+    -- Move flash.nvim from 's' to 'f' prefix
+    "folke/flash.nvim",
+    -- stylua: ignore
+    keys = {
+      { "fa", mode = { "n", "x", "o" }, function() require("flash").jump() end },
+      { "fF", mode = { "n", "x", "o" }, function() require("flash").treesitter() end },
+      { "fr", mode = "o", function() require("flash").remote() end },
+    },
+  },
+  {
+    -- Move mini-surround from 'gs' to 's'
+    "echasnovski/mini.surround",
+    opts = {
+      mappings = {
+        add = "sa", -- add surrounding
+        delete = "sd", -- delete surrounding
+        find = "sf", -- find right surrounding
+        find_left = "sF", -- find left surrounding
+        highlight = "sh", -- highlight surrounding
+        replace = "sr", -- replace surrounding
+        update_n_lines = "sn", -- update n lines
+      },
+    },
+  },
 }
