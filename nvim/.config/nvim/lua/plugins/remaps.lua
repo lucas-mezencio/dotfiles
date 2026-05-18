@@ -100,7 +100,7 @@ return {
   },
   {
     -- Move mini-surround from 'gs' to 's'
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       mappings = {
         add = "sa", -- add surrounding
