@@ -112,3 +112,21 @@ if command -v zoxide &> /dev/null; then
   alias cd='z'
   alias zi='z -i' # Busca interativa com fzf
 fi
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.4.9/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/home/lucas/.local/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/lucas/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<

@@ -1,0 +1,12 @@
+CompileFlags:
+  Add:
+    # O "-xc" é o pulo do gato: força o LSP a tratar o arquivo como C,
+    # acabando com a palhaçada dele achar que seus .h são de C++.
+    - "-xc"
+
+    # Define o padrão do C. Pode ser c11, c17, gnu11...
+    - "-std=c11"
+
+    # Pra não passar vergonha e o compilador xingar seus vacilos na hora
+    - "-Wall"
+    - "-Wextra"
