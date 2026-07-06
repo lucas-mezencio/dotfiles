@@ -77,6 +77,7 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+bindkey '^Y' y
 
 # History
 HISTSIZE=5000
@@ -130,3 +131,7 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+export MANPAGER='nvim +Man!'

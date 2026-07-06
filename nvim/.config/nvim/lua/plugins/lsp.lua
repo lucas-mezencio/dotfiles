@@ -3,6 +3,25 @@ return {
   opts = {
     inlay_hints = { enabled = false },
     servers = {
+      pyright = {
+        before_init = function(_, config)
+          local cwd = vim.fn.getcwd()
+          local venv_path = cwd .. "/.venv"
+          -- Check if .venv folder exists in the project root
+          if vim.fn.isdirectory(venv_path) == 1 then
+            config.settings.python.pythonPath = venv_path .. "/bin/python"
+          end
+        end,
+        settings = {
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "workspace",
+            },
+          },
+        },
+      },
       clangd = {
         cmd = {
           "clangd",
