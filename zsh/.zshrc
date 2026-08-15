@@ -34,9 +34,6 @@ zinit snippet OMZP::command-not-found
 fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.4.7/contrib/zsh $fpath)
 fpath=(~/.zsh/completions $fpath)
 
-# Load completitions
-autoload -U compinit && compinit
-zinit cdreplay -q
 
 # Aliases
 alias k=kubectl
@@ -54,7 +51,6 @@ fi
 
 # Shell integrations
 # Sources
-eval "$($HOME/.local/bin/mise activate zsh)" # added by https://mise.run/zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(fzf --zsh)
@@ -70,7 +66,6 @@ fi
 eval "$(ssh-agent -s)" > /dev/null
 eval "$(atuin init zsh)"
 
-source <(kubectl completion zsh)
 
 # Keybindings
 bindkey -e
@@ -114,24 +109,7 @@ if command -v zoxide &> /dev/null; then
   alias zi='z -i' # Busca interativa com fzf
 fi
 
-# >>>> Vagrant command completion (start)
-fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.4.9/contrib/zsh $fpath)
-compinit
-# <<<<  Vagrant command completion (end)
-
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'micromamba shell init' !!
-export MAMBA_EXE='/home/lucas/.local/bin/micromamba';
-export MAMBA_ROOT_PREFIX='/home/lucas/micromamba';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
-
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 export MANPAGER='nvim +Man!'
+zinit cdreplay -q

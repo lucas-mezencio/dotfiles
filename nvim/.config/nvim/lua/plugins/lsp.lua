@@ -100,6 +100,7 @@ return {
           },
         },
         keys = {
+          { "gr", false },
           { "<leader>ss", false }, -- lsp symbols
           { "<leader>sS", false }, -- lsp workspace symbols
           {
