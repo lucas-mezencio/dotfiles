@@ -7,10 +7,10 @@ vim.g.have_nerd_font = true
 vim.g.maplocalleader = " "
 vim.o.scrolloff = 15
 vim.o.confirm = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 vim.opt.colorcolumn = "80,120"
 -- Disable inlay hints by default (toggle with <leader>uh)
 vim.lsp.inlay_hint.enable(false)

@@ -6,6 +6,7 @@ hl.unbind("SUPER + slash")
 o.bind("SUPER + slash", "System menu", "omarchy menu")
 
 -- 2. Workspace navigation (vim-style; lowercase comma/period to match xkbcommon keysyms)
+hl.unbind("SUPER + CTRL + period")
 o.bind("SUPER + comma", "Previous workspace", hl.dsp.focus({ workspace = "r-1" }))
 o.bind("SUPER + period", "Next workspace", hl.dsp.focus({ workspace = "r+1" }))
 o.bind("SUPER + CTRL + comma", "Move window to previous workspace", hl.dsp.window.move({ workspace = "r-1" }))
