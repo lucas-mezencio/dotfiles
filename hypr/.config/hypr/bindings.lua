@@ -1,6 +1,16 @@
 -- Personal keybinding overrides (loaded after Omarchy defaults).
 -- See current bindings and descriptions: omarchy menu keybindings --print
 
+-- Disable Omarchy's notification bindings (comma family in
+-- /usr/share/omarchy/default/hypr/bindings/utilities.lua lines 24-28).
+-- They stacked with the workspace vim-style overrides below and kept
+-- triggering the notification handlers. We don't use notifications at all.
+hl.unbind("SUPER + comma")
+hl.unbind("SUPER + SHIFT + comma")
+hl.unbind("SUPER + CTRL + comma")
+hl.unbind("SUPER + ALT + comma")
+hl.unbind("SUPER + SHIFT + ALT + comma")
+
 -- 1. Kill Omarchy's "Monitor scaling up". SLASH stays unbound.
 hl.unbind("SUPER + slash")
 o.bind("SUPER + slash", "System menu", "omarchy menu")
@@ -36,7 +46,6 @@ o.bind("SUPER + ALT + L", "", hl.dsp.window.resize({ x = 25, y = 0, relative = t
 
 -- 4. Reallocate keys unbinded but lost
 o.bind("SUPER + SHIFT + J", "Toggle window split", hl.dsp.layout("togglesplit"))
-o.bind("SUPER + SHIFT + L", "Toggle workspace layout", "omarchy-hyprland-workspace-layout-toggle")
 o.bind("SUPER + CTRL + ALT + L", "Lock system", "omarchy system lock")
 
 -- 5. Close window on SUPER + C (silently shadows Omarchy's Universal copy)
@@ -53,9 +62,24 @@ o.bind("SUPER + ALT + PRINT", "Screenrecording", "omarchy menu screenrecord")
 -- 8. Scratchpad (your variant; Omarchy's SUPER+S toggle and SUPER+ALT+S move still bound)
 o.bind("SUPER + SHIFT + S", "Move window to scratchpad", hl.dsp.window.move({ workspace = "special:scratchpad" }))
 
--- 9. Notifications (Quickshell IPC; SEMICOLON family is free in Omarchy defaults)
-o.bind("SUPER + semicolon", "Dismiss last notification", "omarchy-shell notifications dismissOne")
-o.bind("SUPER + SHIFT + semicolon", "Dismiss all notifications", "omarchy-shell notifications dismissAll")
-o.bind("SUPER + CTRL + semicolon", "Toggle DND", "omarchy-toggle-notification-silencing")
-o.bind("SUPER + ALT + semicolon", "Invoke last notification", "omarchy-shell notifications invokeLast")
-o.bind("SUPER + SHIFT + ALT + semicolon", "Notification history", "omarchy-shell notifications showHistory")
+-- 9. Cross-monitor SHIFT (focus + window + workspace between monitors).
+-- SHIFT acts as a "decorator" on top of the existing SUPER + HJKL/comma-period pattern:
+--   SUPER            : focus direction / cycle workspace
+--   SUPER + CTRL     : swap window / move window between workspaces
+--   SUPER + SHIFT    : focus jumps to the adjacent monitor (direction or cycle)
+--   SUPER + CTRL + SHIFT : active window moves to the adjacent monitor
+--   SUPER + ALT + SHIFT  : current workspace itself moves to the adjacent monitor
+-- Direction (H/L) and cycle (comma/period) are kept in parallel so the pattern holds for >2 monitors.
+-- J/K are intentionally not bound here (reserved for future vertical-monitor layouts).
+hl.unbind("SUPER + SHIFT + L") -- Omarchy: Swap window right (now Focus right monitor)
+o.bind("SUPER + SHIFT + H", "Focus left monitor", hl.dsp.focus({ monitor = "l" }))
+o.bind("SUPER + SHIFT + L", "Focus right monitor", hl.dsp.focus({ monitor = "r" }))
+o.bind("SUPER + SHIFT + comma", "Focus previous monitor", hl.dsp.focus({ monitor = "-1" }))
+o.bind("SUPER + SHIFT + period", "Focus next monitor", hl.dsp.focus({ monitor = "+1" }))
+o.bind("SUPER + SHIFT + Z", "Toggle workspace layout", "omarchy-hyprland-workspace-layout-toggle")
+o.bind("SUPER + CTRL + SHIFT + H", "Move window to left monitor", hl.dsp.window.move({ monitor = "l" }))
+o.bind("SUPER + CTRL + SHIFT + L", "Move window to right monitor", hl.dsp.window.move({ monitor = "r" }))
+o.bind("SUPER + CTRL + SHIFT + comma", "Move window to previous monitor", hl.dsp.window.move({ monitor = "-1" }))
+o.bind("SUPER + CTRL + SHIFT + period", "Move window to next monitor", hl.dsp.window.move({ monitor = "+1" }))
+o.bind("SUPER + ALT + SHIFT + comma", "Move workspace to previous monitor", hl.dsp.workspace.move({ monitor = "-1" }))
+o.bind("SUPER + ALT + SHIFT + period", "Move workspace to next monitor", hl.dsp.workspace.move({ monitor = "+1" }))

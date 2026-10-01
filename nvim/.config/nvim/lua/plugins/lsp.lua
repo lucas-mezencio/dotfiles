@@ -28,6 +28,7 @@ return {
           "--background-index",
           "--clang-tidy",
           "--completion-style=detailed",
+          "--compile-commands-dir=build",
           "--query-driver=" .. table.concat({
             "/usr/bin/gcc",
             "/usr/bin/g++",
