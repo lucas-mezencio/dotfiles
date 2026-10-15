@@ -1,196 +1,53 @@
-" ============================================================================
-"  IdeaVIM configuration — 1:1 port of LazyVim setup
-" ============================================================================
-"  Stow target: ~/.config/ideavim/ideavimrc  (after `stow ideavim`)
-"  IDE:        IntelliJ IDEA Ultimate Edition
-"  Leader:     <Space>  (matches Neovim/LazyVim)
-"  Save:       IntelliJ auto-saves; <leader>s is mapped to ReformatCode
-"
-"  Structure:  5 sections, in same order as the Neovim mapping plan.
-"  Native plugins (surround, commentary, mini-ai, ...) enabled via `set <name>`
-"  — no Marketplace install required for any feature in this file.
-" ============================================================================
-
-" --- Leader ---------------------------------------------------------------
 let mapleader = " "
-
-" --- IdeaVIM native plugins (built into the plugin) ----------------------
-" These are shipped with IdeaVIM. Activated with `set <name>`. No extra
-" Marketplace install needed for anything below this line.
+set clipboard=unnamedplus
+set scrolloff=15
+set relativenumber
+set ignorecase
 set surround
 set commentary
+set highlightedyank
+"set anyobject
 set mini-ai
-set argtextobj
-set textobj-entire
-set ReplaceWithRegister
+set NERDTree
 
-" Argtextobj: include all bracket pair types
-let g:argtextobj_pairs = "(:),{:},<:>,[:]"
-
-" IdeaVIM-specific options worth enabling
-set ideajoin                  " :j uses IntelliJ's join (smart space handling)
-set ideaput                   " paste uses IntelliJ's native insert
-set ideamarks                 " sync IntelliJ bookmarks with global marks (A-Z)
-set idearefactormode=visual   " keep selection after refactor
-
-" ============================================================================
-"  SECTION 1 — Configs
-" ============================================================================
-"  Mirrors: nvim/lua/config/options.lua + LazyVim defaults
-"  Goal: keep cursor centered ~15 lines from top/bottom, vim-ish indentation,
-"  smart case search, and yank to system clipboard.
-
-" Cursor stays centered (15 lines context top/bottom)
-set scrolloff=15
-
-" Line numbers: relative + absolute
-set relativenumber
-set number
-
-" Tabs/spaces
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-
-" Search behavior
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-
-" Cursor line
-set cursorline
-
-" Splits
-set splitright
-set splitbelow
-
-" Wrapping
-set nowrap
-set linebreak
-set sidescrolloff=8
-
-" Misc editor behavior
-set timeoutlen=300
-set mouse=a
-set virtualedit=onemore
-set colorcolumn=80,120
-
-" Yank to system clipboard automatically (no <leader>y needed)
-set clipboard=unnamedplus
-
-" Clear search highlight on Escape
-nnoremap <Esc> :nohlsearch<CR>
-
-" j/k as gj/gk (matches LazyVim's v:count-aware expr mapping; simplified)
-nnoremap j gj
-nnoremap k gk
-
-" ============================================================================
-"  SECTION 2 — Save & Format
-" ============================================================================
-"  Neovim used <leader>s for :w. IntelliJ auto-saves, so we repurpose
-"  <leader>s for ReformatCode (the user's request).
-
-nnoremap <C-s> <Nop>
 nmap <leader>s <Action>(ReformatCode)
-nmap <leader>cf <Action>(ReformatCode)
+vmap <leader>s <Action>(ReformatCode)
 
-" ============================================================================
-"  SECTION 3 — File navigation (Harpoon-like + Find)
-" ============================================================================
-"  Harpoon → IntelliJ Bookmarks. Add a bookmark on a line, jump later.
-"  Default IntelliJ keymap:
-"    F11                 → ToggleBookmark  (mnemonic)
-"    Ctrl+Shift+1..9     → set numbered bookmark on current line
-"    Ctrl+1..9           → jump to numbered bookmark
-"    Shift+F11           → ShowBookmarks (popup)
+"nmap <leader>pv <Action>(SearchEverywhere)
+"vmap <leader>pv <Action>(SearchEverywhere)
+nmap <leader>pv :NERDTreeToggle<CR>
 
-" Add/show bookmarks
-nmap <leader>a <Action>(ToggleBookmark)
-nmap <leader>h <Action>(ShowBookmarks)
+nmap <leader>pf <Action>(GotoFile)
+vmap <leader>pf <Action>(GotoFile)
 
-" Jump to numbered bookmark 1..9
-nmap <leader>1 <Action>(GotoBookmark1)
-nmap <leader>2 <Action>(GotoBookmark2)
-nmap <leader>3 <Action>(GotoBookmark3)
-nmap <leader>4 <Action>(GotoBookmark4)
-nmap <leader>5 <Action>(GotoBookmark5)
-nmap <leader>6 <Action>(GotoBookmark6)
-nmap <leader>7 <Action>(GotoBookmark7)
-nmap <leader>8 <Action>(GotoBookmark8)
-nmap <leader>9 <Action>(GotoBookmark9)
+nmap <leader>psc <Action>(GotoClass)
+vmap <leader>psc <Action>(GotoClass)
 
-" Snacks/Telescope-style find — IntelliJ actions
-nmap <leader>pf <Action>(GotoFile)                    " find file by name
-nmap <leader>pg <Action>(FindInPath)                  " grep in path (whole project)
-nmap <leader>psw <Action>(FindWordAtCaret)            " grep word under cursor
-nmap <leader><leader> <Action>(RecentFiles)           " recent files (buffer list)
-nmap <leader>pv <Action>(ActivateProjectToolWindow)   " file tree (project view)
-nmap <leader>psd <Action>(GotoNextError)              " next diagnostic
-nmap <leader>psD <Action>(ShowErrorDescription)       " line diagnostics
+nmap <leader>psg <Action>(GotoSymbol)
+vmap <leader>psg <Action>(GotoSymbol)
 
-" ============================================================================
-"  SECTION 4 — LSP (gd, gD, grr, grn, K, etc.)
-" ============================================================================
+nmap <leader>psa <Action>(GotoAction)
+vmap <leader>psa <Action>(GotoAction)
 
-nmap gd <Action>(GotoDeclaration)                     " [G]oto [D]efinition
-nmap gD <Action>(GotoDeclaration)                     " [G]oto [D]eclaration (IntelliJ treats as same)
-nmap gi <Action>(GotoImplementation)                  " [G]oto [I]mplementation
-nmap gy <Action>(GotoTypeDefinition)                  " [G]oto T[y]pe Definition
-nmap grr <Action>(FindUsages)                         " [G]oto [R]eferences
-nmap grn <Action>(RenameElement)                      " [R]e[n]ame symbol
-nmap K <Action>(QuickJavaDoc)                         " Hover / Quick Doc
-nmap gK <Action>(ParameterInfo)                       " Signature Help
-nmap gra <Action>(ShowIntentionActions)               " Code action / Quick fix
-nmap ]] <Action>(GotoNextHighlightedElement)          " Next reference
-nmap [[ <Action>(GotoPrevHighlightedElement)          " Prev reference
+nmap <leader>poi <Action>(OptimizeImports)
+vmap <leader>poi <Action>(OptimizeImports)
 
-" ============================================================================
-"  SECTION 5 — Others
-" ============================================================================
 
-" --- File ops (buffer/tab equivalent) ---
-nmap <leader>bd <Action>(CloseContent)                " close current editor (like :bd)
-nmap <leader>fn <Action>(NewElement)                  " new file (Alt+Insert) — works in Project view
-nmap <S-h> <Action>(PreviousEditor)                   " prev tab/buffer (was LazyVim <S-h>)
-nmap <S-l> <Action>(NextEditor)                       " next tab/buffer (was LazyVim <S-l>)
+unmap s
+nmap sd ds
+nmap sc cs
+nmap sa ys
+nmap saa yss
+vmap sa S
 
-" --- Comments (set commentary above already gives gcc + gc{motion}) ---
-"    gcc               → toggle line comment
-"    gc{motion}        → comment the motion (e.g. gcap for paragraph)
-"    gciw, gcit, etc.  → inner-word / inner-tag (vim-commentary style)
-"  These are inherited from the native commentary plugin — no mappings needed.
+nnoremap q :NERDTreeClose<CR>
 
-" --- Surround (set surround above enables vim-surround syntax) ---
-"    ys{motion}{char}  → add surround  (e.g. ysiw' adds single quotes around word)
-"    ds{char}          → delete surround
-"    cs{old}{new}      → change surround
-"    S{char}           → surround visual selection
+nmap <leader>h <Action>(ShowHarpoon)
+nmap <leader>a <Action>(AddToHarpoon)
+nmap <leader>1 <Action>(GotoHarpoon1)
+nmap <leader>2 <Action>(GotoHarpoon2)
+nmap <leader>3 <Action>(GotoHarpoon3)
+nmap <leader>4 <Action>(GotoHarpoon4)
+nmap <leader>5 <Action>(GotoHarpoon5)
+nmap <leader>6 <Action>(GotoHarpoon6)
 
-" --- Mini.ai textobjects (set mini-ai above) ---
-"    aq/iq             → around/inside any quotes
-"    ab/ib             → around/inside any brackets
-"  (mini.ai is more limited than the Neovim version, but covers the common cases)
-
-" --- Argtextobj (set argtextobj above) ---
-"    aa / ia           → argument / inner argument
-
-" --- Textobj-entire (set textobj-entire above) ---
-"    ae / ie           → around/inside entire buffer
-
-" --- ReplaceWithRegister (set ReplaceWithRegister above) ---
-"    gr{motion}        → replace with register content (e.g. grw replaces word)
-
-" --- Centered scrolling ---
-"  scrolloff=15 already keeps cursor away from top/bottom.
-"  n/N and <C-d>/<C-u> get centered behavior automatically in IdeaVIM.
-
-" --- Window nav (LazyVim-style <C-h/j/k/l>) ---
-"  Disabled: IntelliJ already uses <C-h/j/k/l> for tool window navigation.
-"  Uncomment if you prefer vim splits over IDE tool windows.
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
