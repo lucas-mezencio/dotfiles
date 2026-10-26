@@ -1,0 +1,54 @@
+let mapleader = " "
+set clipboard=unnamedplus
+set scrolloff=15
+set relativenumber
+set ignorecase
+set surround
+set commentary
+set highlightedyank
+"set anyobject
+set mini-ai
+set NERDTree
+
+nmap <leader>s <Action>(ReformatCode)
+vmap <leader>s <Action>(ReformatCode)
+
+"nmap <leader>pv <Action>(SearchEverywhere)
+"vmap <leader>pv <Action>(SearchEverywhere)
+nmap <leader>pv :NERDTreeToggle<CR>
+
+nmap <leader>pf <Action>(GotoFile)
+vmap <leader>pf <Action>(GotoFile)
+
+nmap <leader>psc <Action>(GotoClass)
+vmap <leader>psc <Action>(GotoClass)
+
+nmap <leader>psg <Action>(GotoSymbol)
+vmap <leader>psg <Action>(GotoSymbol)
+
+nmap <leader>psa <Action>(GotoAction)
+vmap <leader>psa <Action>(GotoAction)
+
+nmap <leader>poi <Action>(OptimizeImports)
+vmap <leader>poi <Action>(OptimizeImports)
+
+
+unmap s
+nmap sd ds
+nmap sc cs
+nmap sa ys
+nmap saa yss
+vmap sa S
+
+nnoremap q :NERDTreeClose<CR>
+
+nmap <leader>h <Action>(ShowHarpoon)
+nmap <leader>a <Action>(AddToHarpoon)
+nmap <leader>1 <Action>(GotoHarpoon1)
+nmap <leader>2 <Action>(GotoHarpoon2)
+nmap <leader>3 <Action>(GotoHarpoon3)
+nmap <leader>4 <Action>(GotoHarpoon4)
+nmap <leader>5 <Action>(GotoHarpoon5)
+nmap <leader>6 <Action>(GotoHarpoon6)
+
+nmap grn <Action>(RenameElement)
