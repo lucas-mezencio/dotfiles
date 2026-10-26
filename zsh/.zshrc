@@ -113,3 +113,13 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 export MANPAGER='nvim +Man!'
 zinit cdreplay -q
+
+# Added by LM Studio CLI (lms)
+if [ -f "~/home/lucas/.lmstudio/bin" ]; then
+  export PATH="$PATH:/home/lucas/.lmstudio/bin"
+fi
+# End of LM Studio CLI section
+
+
+# vi mode (on bash: `set -o vi`)
+bindkey -v
